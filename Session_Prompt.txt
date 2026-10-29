@@ -1,0 +1,41 @@
+RULES FOR MAKING ONE BATCH
+(The batch number is given in my chat message. Use that number everywhere below as N.)
+
+Files in this repo:
+1. BanHealthAIRespRelv3(All-Processed).xlsx  (the original dataset)
+2. Generation_Plan.xlsx  (the batch plan)
+
+What to do:
+- Open the "Prompts per Batch" sheet in Generation_Plan.xlsx and take only the rows where Batch = N.
+- For each prompt, write NEW responses. Write exactly the number given in the
+  "Highly Relevant", "Partially Relevant" and "Not Relevant" columns for that prompt.
+- Keep the Genre and Prompt text exactly the same as in the plan (Bengali and English).
+- Look at the original dataset to copy the style: one sentence per response,
+  Bengali first, then an English translation, spaces before commas like " , ".
+- Do NOT copy or lightly reword the original responses. Every response must be new.
+- No two responses for the same prompt should be the same.
+- Write every response yourself, by hand, one by one. Do NOT write a script, template,
+  word list, random word swapping or any code that creates or fills in sentences.
+  Code may ONLY be used to save the xlsx file and to check counts.
+- Work one prompt at a time and save progress as you go, so nothing is lost
+  if the session stops.
+
+Class meaning:
+- Highly Relevant: directly answers the prompt with correct, useful health advice.
+- Partially Relevant: on the same topic but incomplete, vague, a personal story,
+  only prevention, or about a related symptom. Does not fully answer.
+- Not Relevant: about a different body part or a different health problem.
+
+Output:
+- One .xlsx file named Batch_NN_Gemini.xlsx (NN = batch number with 2 digits,
+  for example Batch_14_Gemini.xlsx), saved in the main folder of this repo.
+- These 7 columns, in this order:
+  Symptoms Genres | Symptoms Genres (Translated to English) | Used Prompts |
+  Used Prompts (Translated to English) | Response | Response (Translated to English) | Lable
+- Lable must be exactly one of: Highly Relevant / Partially Relevant / Not Relevant
+
+Before finishing:
+- Check with code that the row counts per prompt and per class match the plan exactly.
+- Check there are no empty cells and no duplicate responses.
+- Then commit and push the file.
+- Tell me the final row count.
